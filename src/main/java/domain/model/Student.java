@@ -10,8 +10,7 @@ import javax.persistence.Id;
 @Entity
 public class Student {
     @Id
-    @GeneratedValue
-    Long id;
+    Long pesel;
     String name;
     String surname;
     Grade grade;
@@ -21,5 +20,25 @@ public class Student {
         this.name = studentDto.getName();
         this.surname = studentDto.getSurname();
         this.grade=new Grade(studentDto.getGrade());
+    }
+
+    public StudentDto asDto() {
+        return new StudentDto(name,surname,grade.getName(),pesel);
+    }
+
+    public Long getPesel() {
+        return pesel;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public Grade getGrade() {
+        return grade;
     }
 }
