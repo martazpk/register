@@ -1,6 +1,6 @@
-package repository;
+package pl.kopp.marta.repository;
 
-import domain.model.Student;
+import pl.kopp.marta.domain.model.Student;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

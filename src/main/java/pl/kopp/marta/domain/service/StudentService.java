@@ -1,11 +1,10 @@
-package domain.service;
+package pl.kopp.marta.domain.service;
 
-import domain.dto.StudentDto;
-import domain.model.Student;
-import domain.service.exceptions.StudentAlreadyExistsException;
-import domain.service.exceptions.StudentDoesNotExistsException;
+import pl.kopp.marta.domain.dto.StudentDto;
+import pl.kopp.marta.domain.model.Student;
+import pl.kopp.marta.domain.service.exceptions.StudentDoesNotExistsException;
 import org.springframework.stereotype.Service;
-import repository.StudentRepository;
+import pl.kopp.marta.repository.StudentRepository;
 
 @Service
 public class StudentService {
@@ -22,12 +21,9 @@ public class StudentService {
     }
 
     Long add(StudentDto studentDto) {
-        if (repository.isExist(studentDto.getPesel())) throw new StudentAlreadyExistsException(studentDto.getPesel());
-        else {
             Student student = new Student(studentDto);
             repository.add(student);
-            return student.getPesel();
-        }
+            return student.getId();
     }
 
     public void delete(Long id) {
@@ -36,8 +32,9 @@ public class StudentService {
         } else throw new StudentDoesNotExistsException(id);
     }
 
-    public void update(StudentDto studentDto) {
-        Student student = repository.get(studentDto.getPesel());
-        repository.update(student);
+    public void update(Long id, StudentDto studentDto) {
+        Student student = repository.get(id);
+        student.update(studentDto);
+        repository.add(student);
     }
 }

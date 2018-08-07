@@ -1,12 +1,12 @@
-package repository.JPA;
+package pl.kopp.marta.repository.JPA;
 
-import domain.model.Student;
-import org.springframework.data.jpa.domain.Specification;
-import repository.CrudJpaStudentRepository;
-import repository.StudentRepository;
+import pl.kopp.marta.domain.model.Student;
+import org.springframework.stereotype.Repository;
+import pl.kopp.marta.repository.CrudJpaStudentRepository;
+import pl.kopp.marta.repository.StudentRepository;
 
-import java.util.List;
 
+@Repository
 public class JpaDataStudentRepository implements StudentRepository {
     private final CrudJpaStudentRepository repository;
 
@@ -38,6 +38,5 @@ public class JpaDataStudentRepository implements StudentRepository {
     public void update(Student student) {
         repository.save(student);
     }
-
 
 }

@@ -1,4 +1,4 @@
-package domain.service.exceptions;
+package pl.kopp.marta.domain.service.exceptions;
 
 public class StudentDoesNotExistsException extends RuntimeException {
     public StudentDoesNotExistsException(Long id) {

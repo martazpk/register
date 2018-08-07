@@ -1,8 +1,9 @@
-package repository;
+package pl.kopp.marta.repository;
 
-import domain.model.Student;
+import pl.kopp.marta.domain.model.Student;
 
 public interface StudentRepository {
+
     Student get(Long id);
 
     boolean isExist(long id);
