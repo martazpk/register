@@ -33,8 +33,9 @@ public class StudentService {
     }
 
     public void update(Long id, StudentDto studentDto) {
+        if(repository.isExist(id)){
         Student student = repository.get(id);
         student.update(studentDto);
-        repository.add(student);
+        repository.add(student);} else throw new StudentDoesNotExistsException(id);
     }
 }
