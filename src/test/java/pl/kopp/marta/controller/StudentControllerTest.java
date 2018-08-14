@@ -82,7 +82,7 @@ public class StudentControllerTest {
         long id=givenStudent(name,surname);
 
         MockHttpServletResponse response=chrome.perform(MockMvcRequestBuilders
-                .put("/student/{id}")
+                .put("/student/{id}",id)
         .param("name",newName)
         .param("surname",surname)
         ).andReturn().getResponse();
