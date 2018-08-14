@@ -30,7 +30,7 @@ public class StudentControllerTest {
     public void create() throws Exception {
         String name="Peter";
         String surname="Parker";
-        MockHttpServletResponse response=chrome.perform(MockMvcRequestBuilders.put("/student")
+        MockHttpServletResponse response=chrome.perform(MockMvcRequestBuilders.post("/student")
         .param("name",name)
         .param("surname",surname)).andReturn().getResponse();
 
@@ -74,7 +74,6 @@ public class StudentControllerTest {
         return service.add(dto);
     }
 
-
     @Test
     public void update() throws Exception {
         String name="Peter";
@@ -83,14 +82,13 @@ public class StudentControllerTest {
         long id=givenStudent(name,surname);
 
         MockHttpServletResponse response=chrome.perform(MockMvcRequestBuilders
-                .post("/student/{id}")
+                .put("/student/{id}")
         .param("name",newName)
         .param("surname",surname)
         ).andReturn().getResponse();
 
         assertEquals(HttpStatus.OK.value(), response.getStatus());
         MockHttpServletResponse create=aStudentBy(id);
-        assertEquals("{\"name\":\""+newName+"\",\"surname\":\"" + surname+"\",\"grade\":null}", response.getContentAsString());
+        assertEquals("{\"name\":\""+newName+"\",\"surname\":\"" + surname+"\",\"grade\":null}", create.getContentAsString());
     }
-
 }

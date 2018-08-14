@@ -15,7 +15,7 @@ public class StudentController {
         this.service = service;
     }
 
-    @RequestMapping(method = RequestMethod.PUT)
+    @RequestMapping(method = RequestMethod.POST)
     public long create(@ModelAttribute StudentDto dto) {
         return service.add(dto);
     }
@@ -30,7 +30,7 @@ public class StudentController {
         return service.get(identifier);
     }
 
-    @RequestMapping(path = "/{identifier}",method = RequestMethod.POST)
+    @RequestMapping(path = "/{identifier}",method = RequestMethod.PUT)
     public void update(@PathVariable long identifier, @ModelAttribute StudentDto dto){
         service.update(identifier,dto);
     }

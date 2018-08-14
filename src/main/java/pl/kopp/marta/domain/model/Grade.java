@@ -8,7 +8,7 @@ public class Grade {
     @Id
     @GeneratedValue
     private long id;
-    private int number;
+    private int level;
     private char name;
     @OneToMany(cascade = CascadeType.ALL)
     private List<Student> students;
@@ -16,22 +16,22 @@ public class Grade {
     private Grade() {
     }
 
-    public Grade(int number, char name) {
-        this.number = number;
+    public Grade(int level, char name) {
+        this.level = level;
         this.name = name;
     }
 
 
     public String getGrade() {
-        return String.valueOf(number) + String.valueOf(name);
+        return String.valueOf(level) + String.valueOf(name);
     }
 
     public long getId() {
         return id;
     }
 
-    public int getNumber() {
-        return number;
+    public int getLevel() {
+        return level;
     }
 
     public char getName() {

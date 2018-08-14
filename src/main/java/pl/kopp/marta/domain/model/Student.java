@@ -19,7 +19,6 @@ public class Student {
     public Student(StudentDto studentDto) {
         this.name = studentDto.getName();
         this.surname = studentDto.getSurname();
-
     }
 
     private Student() {

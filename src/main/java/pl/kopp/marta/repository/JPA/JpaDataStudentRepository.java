@@ -1,9 +1,12 @@
 package pl.kopp.marta.repository.JPA;
 
+import org.springframework.data.jpa.domain.Specification;
 import pl.kopp.marta.domain.model.Student;
 import org.springframework.stereotype.Repository;
 import pl.kopp.marta.repository.CrudJpaStudentRepository;
 import pl.kopp.marta.repository.StudentRepository;
+
+import java.util.List;
 
 
 @Repository
@@ -37,6 +40,16 @@ public class JpaDataStudentRepository implements StudentRepository {
     @Override
     public void update(Student student) {
         repository.save(student);
+    }
+
+    @Override
+    public List<Student> findAll(Specification<Student> specification) {
+        return repository.findAll(specification);
+    }
+
+    @Override
+    public void deleteAll() {
+        repository.deleteAll();
     }
 
 }

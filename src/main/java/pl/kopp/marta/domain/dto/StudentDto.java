@@ -11,6 +11,9 @@ public class StudentDto {
         this.surname = builder.surname;
     }
 
+    private StudentDto() {
+    }
+
     public String getName() {
         return name;
     }
@@ -43,4 +46,15 @@ public class StudentDto {
         }
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
 }

@@ -14,13 +14,13 @@ public class StudentService {
         this.repository = repository;
     }
 
-    StudentDto get(Long id) {
+    public StudentDto get(Long id) {
         if (repository.isExist(id)) {
             return repository.get(id).asDto();
         } else throw new StudentDoesNotExistsException(id);
     }
 
-    Long add(StudentDto studentDto) {
+    public Long add(StudentDto studentDto) {
             Student student = new Student(studentDto);
             repository.add(student);
             return student.getId();
