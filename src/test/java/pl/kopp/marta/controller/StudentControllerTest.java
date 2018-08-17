@@ -91,4 +91,12 @@ public class StudentControllerTest {
         MockHttpServletResponse create=aStudentBy(id);
         assertEquals("{\"name\":\""+newName+"\",\"surname\":\"" + surname+"\",\"grade\":null}", create.getContentAsString());
     }
+
+    @Test
+    public void shouldReturnNotFoundStatusWhenStudentDoesNotExists() throws Exception {
+        long wrongId=111L;
+        MockHttpServletResponse response=aStudentBy(wrongId);
+
+        assertEquals(HttpStatus.NOT_FOUND.value(), response.getStatus());
+    }
 }
