@@ -1,4 +1,4 @@
-package pl.kopp.marta.domain.service;
+package pl.kopp.marta.student.domain.service;
 
 import org.junit.After;
 import org.junit.Before;
@@ -7,10 +7,10 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import pl.kopp.marta.domain.dto.QueryCriteriaDto;
-import pl.kopp.marta.domain.dto.StudentDto;
-import pl.kopp.marta.domain.model.Student;
-import pl.kopp.marta.repository.StudentRepository;
+import pl.kopp.marta.student.domain.dto.QueryCriteriaDto;
+import pl.kopp.marta.student.domain.dto.StudentDto;
+import pl.kopp.marta.student.domain.model.Student;
+import pl.kopp.marta.student.repository.StudentRepository;
 
 import java.util.List;
 
@@ -23,7 +23,6 @@ public class StudentQueriesServiceTest {
     private StudentRepository repository;
     private StudentQueriesService service;
 
-    
     @Before
     public void setUp() throws Exception {
         service=new StudentQueriesService(repository);
@@ -48,7 +47,6 @@ public class StudentQueriesServiceTest {
         assertEquals(2,studentsBy.size());
         assertEquals("Marta",studentsBy.get(0).getName());
     }
-
 
     @Test
     public void shouldReturnEmptyListWhenSurnameIsNotExists() throws Exception {

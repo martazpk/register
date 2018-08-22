@@ -1,9 +1,9 @@
-package pl.kopp.marta.controller;
+package pl.kopp.marta.student.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pl.kopp.marta.domain.dto.StudentDto;
-import pl.kopp.marta.domain.service.StudentService;
+import pl.kopp.marta.student.domain.dto.StudentDto;
+import pl.kopp.marta.student.domain.service.StudentService;
 
 @RestController
 @RequestMapping("/student")

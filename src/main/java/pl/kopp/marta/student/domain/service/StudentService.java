@@ -1,10 +1,10 @@
-package pl.kopp.marta.domain.service;
+package pl.kopp.marta.student.domain.service;
 
-import pl.kopp.marta.domain.dto.StudentDto;
-import pl.kopp.marta.domain.model.Student;
-import pl.kopp.marta.domain.service.exceptions.StudentDoesNotExistsException;
+import pl.kopp.marta.student.domain.dto.StudentDto;
+import pl.kopp.marta.student.domain.model.Student;
+import pl.kopp.marta.student.domain.service.exceptions.StudentDoesNotExistsException;
 import org.springframework.stereotype.Service;
-import pl.kopp.marta.repository.StudentRepository;
+import pl.kopp.marta.student.repository.StudentRepository;
 
 @Service
 public class StudentService {

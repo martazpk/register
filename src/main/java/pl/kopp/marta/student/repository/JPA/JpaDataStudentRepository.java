@@ -1,10 +1,10 @@
-package pl.kopp.marta.repository.JPA;
+package pl.kopp.marta.student.repository.JPA;
 
 import org.springframework.data.jpa.domain.Specification;
-import pl.kopp.marta.domain.model.Student;
+import pl.kopp.marta.student.domain.model.Student;
 import org.springframework.stereotype.Repository;
-import pl.kopp.marta.repository.CrudJpaStudentRepository;
-import pl.kopp.marta.repository.StudentRepository;
+import pl.kopp.marta.student.repository.CrudJpaStudentRepository;
+import pl.kopp.marta.student.repository.StudentRepository;
 
 import java.util.List;
 

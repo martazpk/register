@@ -1,4 +1,4 @@
-package pl.kopp.marta.controller;
+package pl.kopp.marta.student;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,10 +10,8 @@ import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import pl.kopp.marta.domain.dto.StudentDto;
-import pl.kopp.marta.domain.service.StudentService;
-
-import javax.servlet.http.HttpServletResponse;
+import pl.kopp.marta.student.domain.dto.StudentDto;
+import pl.kopp.marta.student.domain.service.StudentService;
 
 import static org.junit.Assert.*;
 @RunWith(SpringJUnit4ClassRunner.class)

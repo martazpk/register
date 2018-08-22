@@ -1,4 +1,4 @@
-package pl.kopp.marta.domain.service;
+package pl.kopp.marta.student.domain.service;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -6,11 +6,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import pl.kopp.marta.domain.dto.StudentDto;
-import pl.kopp.marta.domain.service.exceptions.StudentDoesNotExistsException;
-import pl.kopp.marta.repository.StudentRepository;
-
-import javax.naming.Name;
+import pl.kopp.marta.student.domain.dto.StudentDto;
+import pl.kopp.marta.student.domain.service.exceptions.StudentDoesNotExistsException;
+import pl.kopp.marta.student.repository.StudentRepository;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;

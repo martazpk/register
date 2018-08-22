@@ -1,10 +1,10 @@
-package pl.kopp.marta.controller;
+package pl.kopp.marta.student.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import pl.kopp.marta.domain.service.exceptions.StudentDoesNotExistsException;
+import pl.kopp.marta.student.domain.service.exceptions.StudentDoesNotExistsException;
 
 @ControllerAdvice
 public class ExceptionHandlerController {

@@ -1,8 +1,8 @@
-package pl.kopp.marta.repository;
+package pl.kopp.marta.student.repository;
 
 import org.springframework.data.jpa.domain.Specification;
-import pl.kopp.marta.domain.dto.QueryCriteriaDto;
-import pl.kopp.marta.domain.model.Student;
+import pl.kopp.marta.student.domain.dto.QueryCriteriaDto;
+import pl.kopp.marta.student.domain.model.Student;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;

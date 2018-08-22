@@ -1,12 +1,12 @@
-package pl.kopp.marta.domain.service;
+package pl.kopp.marta.student.domain.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
-import pl.kopp.marta.domain.dto.QueryCriteriaDto;
-import pl.kopp.marta.domain.dto.StudentDto;
-import pl.kopp.marta.domain.model.Student;
-import pl.kopp.marta.repository.StudentRepository;
+import pl.kopp.marta.student.domain.dto.QueryCriteriaDto;
+import pl.kopp.marta.student.domain.dto.StudentDto;
+import pl.kopp.marta.student.domain.model.Student;
+import pl.kopp.marta.student.repository.StudentRepository;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,7 +21,7 @@ public class StudentQueriesService {
         this.repository = repository;
     }
 
-    List<StudentDto> getStudentsBy(QueryCriteriaDto criteria){
+    public List<StudentDto> getStudentsBy(QueryCriteriaDto criteria){
         Specification<Student> specifications=aSpecificationFrom(criteria);
         List<Student>students=repository.findAll(specifications);
         return  asDtos(students);

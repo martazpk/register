@@ -1,7 +1,8 @@
-package pl.kopp.marta.domain.model;
+package pl.kopp.marta.student.domain.model;
 
 
-import pl.kopp.marta.domain.dto.StudentDto;
+
+import pl.kopp.marta.student.domain.dto.StudentDto;
 
 import javax.persistence.*;
 
@@ -12,7 +13,7 @@ public class Student {
     private Long id;
     private String name;
     private String surname;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Grade grade;
 
 

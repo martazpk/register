@@ -1,13 +1,13 @@
-package pl.kopp.marta.repository.JPA;
+package pl.kopp.marta.student.repository.JPA;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import pl.kopp.marta.domain.dto.StudentDto;
-import pl.kopp.marta.domain.model.Student;
-import pl.kopp.marta.repository.CrudJpaStudentRepository;
+import pl.kopp.marta.student.domain.dto.StudentDto;
+import pl.kopp.marta.student.domain.model.Student;
+import pl.kopp.marta.student.repository.CrudJpaStudentRepository;
 
 import static org.junit.Assert.*;
 @RunWith(SpringJUnit4ClassRunner.class)

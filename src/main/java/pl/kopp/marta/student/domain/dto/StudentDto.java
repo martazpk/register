@@ -1,4 +1,4 @@
-package pl.kopp.marta.domain.dto;
+package pl.kopp.marta.student.domain.dto;
 
 public class StudentDto {
     private String name;
