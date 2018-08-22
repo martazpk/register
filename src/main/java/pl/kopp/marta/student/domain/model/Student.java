@@ -15,6 +15,8 @@ public class Student {
     private String surname;
     @ManyToOne
     private Grade grade;
+    @Embedded
+    private Contact contact;
 
 
     public Student(StudentDto studentDto) {
@@ -48,5 +50,9 @@ public class Student {
     public void update(StudentDto studentDto) {
         this.name=studentDto.getName();
         this.surname=studentDto.getSurname();
+    }
+
+    public Contact getContact() {
+        return contact;
     }
 }
