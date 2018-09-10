@@ -1,4 +1,4 @@
-package pl.kopp.marta.student.repository;
+package pl.kopp.marta.student.repository.CrudJpaRepository;
 
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import pl.kopp.marta.student.domain.model.Student;

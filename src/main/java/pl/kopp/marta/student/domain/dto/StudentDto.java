@@ -1,5 +1,10 @@
 package pl.kopp.marta.student.domain.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class StudentDto {
     private String name;
     private String surname;
@@ -12,18 +17,6 @@ public class StudentDto {
     }
 
     private StudentDto() {
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public String getGrade() {
-        return grade;
     }
 
     public static class Builder {
@@ -44,17 +37,5 @@ public class StudentDto {
         public StudentDto build(){
             return new StudentDto(this);
         }
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public void setGrade(String grade) {
-        this.grade = grade;
     }
 }

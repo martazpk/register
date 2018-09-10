@@ -1,4 +1,4 @@
-package pl.kopp.marta.student;
+package pl.kopp.marta.student.controller;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,6 +18,10 @@ import static org.junit.Assert.*;
 @SpringBootTest
 @AutoConfigureMockMvc
 public class StudentControllerTest {
+    public static final String NAME="Peter";
+    public static final String NEW_NAME="Spider-man";
+    public static final String SURNAME="Parker";
+    public static final long WRONG_ID=123455L;
 
     @Autowired
     private MockMvc chrome;
@@ -25,25 +29,20 @@ public class StudentControllerTest {
     private StudentService service;
 
     @Test
-    public void create() throws Exception {
-        String name="Peter";
-        String surname="Parker";
+    public void shouldCreateNewStudent() throws Exception {
         MockHttpServletResponse response=chrome.perform(MockMvcRequestBuilders.post("/student")
-        .param("name",name)
-        .param("surname",surname)).andReturn().getResponse();
-
+        .param("name",NAME)
+        .param("surname",SURNAME)).andReturn().getResponse();
         assertEquals(HttpStatus.OK.value(), response.getStatus());
         String id = response.getContentAsString();
         MockHttpServletResponse create = aStudentBy(Long.valueOf(id));
-        assertEquals("{\"name\":\""+name+"\",\"surname\":\"" + surname+"\",\"grade\":null}",create.getContentAsString());
+        assertEquals("{\"name\":\""+NAME+"\",\"surname\":\"" + SURNAME+"\",\"grade\":null}",create.getContentAsString());
 
     }
 
     @Test
     public void remove() throws Exception {
-        String name="Peter";
-        String surname="Parker";
-        long id=givenStudent(name,surname);
+        long id=givenStudent(NAME,SURNAME);
 
         MockHttpServletResponse response=chrome.perform(MockMvcRequestBuilders.delete("/student/{id}",id))
                 .andReturn().getResponse();
@@ -53,14 +52,12 @@ public class StudentControllerTest {
 
     @Test
     public void shouldGet() throws Exception {
-        String name="Peter";
-        String surname="Parker";
-        long id=givenStudent(name,surname);
+        long id=givenStudent(NAME,SURNAME);
 
         MockHttpServletResponse response=aStudentBy(id);
 
         assertEquals(HttpStatus.OK.value(), response.getStatus());
-        assertEquals("{\"name\":\""+name+"\",\"surname\":\"" + surname+"\",\"grade\":null}", response.getContentAsString());
+        assertEquals("{\"name\":\""+NAME+"\",\"surname\":\"" + SURNAME+"\",\"grade\":null}", response.getContentAsString());
     }
 
     private MockHttpServletResponse aStudentBy(long id) throws Exception {
@@ -74,26 +71,22 @@ public class StudentControllerTest {
 
     @Test
     public void update() throws Exception {
-        String name="Peter";
-        String newName="Spider-man";
-        String surname="Parker";
-        long id=givenStudent(name,surname);
+        long id=givenStudent(NAME,SURNAME);
 
         MockHttpServletResponse response=chrome.perform(MockMvcRequestBuilders
                 .put("/student/{id}",id)
-        .param("name",newName)
-        .param("surname",surname)
+        .param("name",NEW_NAME)
+        .param("surname",SURNAME)
         ).andReturn().getResponse();
 
         assertEquals(HttpStatus.OK.value(), response.getStatus());
         MockHttpServletResponse create=aStudentBy(id);
-        assertEquals("{\"name\":\""+newName+"\",\"surname\":\"" + surname+"\",\"grade\":null}", create.getContentAsString());
+        assertEquals("{\"name\":\""+NEW_NAME+"\",\"surname\":\"" + SURNAME+"\",\"grade\":null}", create.getContentAsString());
     }
 
     @Test
     public void shouldReturnNotFoundStatusWhenStudentDoesNotExists() throws Exception {
-        long wrongId=111L;
-        MockHttpServletResponse response=aStudentBy(wrongId);
+        MockHttpServletResponse response=aStudentBy(WRONG_ID);
 
         assertEquals(HttpStatus.NOT_FOUND.value(), response.getStatus());
     }

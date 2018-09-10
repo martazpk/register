@@ -1,11 +1,15 @@
 package pl.kopp.marta.student.domain.model;
 
 
-
+import lombok.Getter;
+import lombok.Setter;
 import pl.kopp.marta.student.domain.dto.StudentDto;
 
 import javax.persistence.*;
-
+import java.util.HashSet;
+import java.util.Set;
+@Getter
+@Setter
 @Entity
 public class Student {
     @Id
@@ -17,11 +21,13 @@ public class Student {
     private Grade grade;
     @Embedded
     private Contact contact;
-
+    @ManyToMany
+    private Set<Classes> classes;
 
     public Student(StudentDto studentDto) {
         this.name = studentDto.getName();
         this.surname = studentDto.getSurname();
+        this.classes =new HashSet<>();
     }
 
     private Student() {
@@ -35,24 +41,14 @@ public class Student {
         return name;
     }
 
-    public String getSurname() {
-        return surname;
-    }
-
-    public Grade getGrade() {
-        return grade;
-    }
-
-    public Long getId() {
-        return id;
-    }
 
     public void update(StudentDto studentDto) {
-        this.name=studentDto.getName();
-        this.surname=studentDto.getSurname();
+        this.name = studentDto.getName();
+        this.surname = studentDto.getSurname();
     }
 
-    public Contact getContact() {
-        return contact;
+    public void addClass(Classes classes){
+        this.classes.add(classes);
     }
+
 }

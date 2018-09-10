@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import pl.kopp.marta.student.domain.dto.StudentDto;
-import pl.kopp.marta.student.domain.service.exceptions.StudentDoesNotExistsException;
+import pl.kopp.marta.student.domain.service.exceptions.StudentDoesNotExistException;
 import pl.kopp.marta.student.repository.StudentRepository;
 
 import static org.junit.Assert.assertEquals;
@@ -22,18 +22,17 @@ public class StudentServiceTest {
     @Autowired
     private StudentRepository repository;
     private StudentService service;
-    private String NAME = "Peter";
-    private String NEW_NAME="Spider-Man";
-    private String SURNAME = "Parker";
-    private Long WRONG_ID = 12345678911L;
+    private final static String NAME = "Peter";
+    private final static String NEW_NAME="Spider-Man";
+    private final static String SURNAME = "Parker";
+    private final static Long WRONG_ID = 12345678911L;
 
     @Before
-
     public void setUp() {
         service = new StudentService(repository);
     }
 
-    @Test(expected = StudentDoesNotExistsException.class)
+    @Test(expected = StudentDoesNotExistException.class)
     public void shouldThrowsExceptionWhenStudentDoesNotExists(){
         service.get(WRONG_ID);
     }
@@ -65,7 +64,7 @@ public class StudentServiceTest {
     }
 
     private Long givenStudent(String name, String surname) {
-        StudentDto studentDto=new StudentDto.Builder(NAME, SURNAME).build();
+        StudentDto studentDto=new StudentDto.Builder(name, surname).build();
         return service.add(studentDto);
     }
 }

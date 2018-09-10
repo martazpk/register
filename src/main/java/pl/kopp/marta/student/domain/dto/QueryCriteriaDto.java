@@ -1,11 +1,14 @@
 package pl.kopp.marta.student.domain.dto;
 
+import lombok.Getter;
+
+@Getter
 public class QueryCriteriaDto {
     private  String columnName;
     private String type;
-    private  Object value;
+    private  String value;
 
-    public QueryCriteriaDto(String columnName, String type, Object value) {
+    public QueryCriteriaDto(String columnName, String type, String value) {
         this.columnName = columnName;
         this.type = type;
         this.value = value;
@@ -14,15 +17,4 @@ public class QueryCriteriaDto {
     private QueryCriteriaDto() {
     }
 
-    public String getColumnName() {
-        return columnName;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public Object getValue() {
-        return value;
-    }
 }

@@ -14,4 +14,5 @@ public class Contact {
 
     private Contact() {
     }
+
 }
