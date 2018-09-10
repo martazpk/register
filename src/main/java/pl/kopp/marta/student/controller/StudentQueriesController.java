@@ -19,7 +19,7 @@ public class StudentQueriesController {
     StudentQueriesService service;
 
     @RequestMapping(method= RequestMethod.POST)
-    public List<StudentDto> read (@ModelAttribute QueryCriteriaDto criteria){
+    public List<StudentDto> getByCriteria (@ModelAttribute QueryCriteriaDto criteria){
         return service.getStudentsBy(criteria);
     }
 }
