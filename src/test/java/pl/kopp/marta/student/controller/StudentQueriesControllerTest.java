@@ -29,19 +29,20 @@ public class StudentQueriesControllerTest {
     StudentQueriesService service;
     @Autowired
     private MockMvc chrome;
+
     @Before
     public void setUp() throws Exception {
 
-        Student student1=new Student(new StudentDto.Builder("Marta","Awesome").build());
-        Student student2=new Student(new StudentDto.Builder("Marta","Super").build());
-        Student student3=new Student(new StudentDto.Builder("Maria","Super-duper").build());
+        Student student1 = new Student(new StudentDto.Builder("Marta", "Awesome").build());
+        Student student2 = new Student(new StudentDto.Builder("Marta", "Super").build());
+        Student student3 = new Student(new StudentDto.Builder("Maria", "Super-duper").build());
         repository.save(student1);
         repository.save(student2);
         repository.save(student3);
     }
 
     @Test
-    public void shouldReturnHttpResponseStatusOk() throws Exception {
+    public void shouldReturnListStudentDtosWhenIsGivenName() throws Exception {
         String columnName = "name";
         String type = "equals";
         String value = "Marta";
@@ -55,5 +56,7 @@ public class StudentQueriesControllerTest {
         ).andReturn().getResponse();
 
         assertEquals(HttpStatus.OK.value(), response.getStatus());
+        assertEquals("[{\"name\":\"Marta\",\"surname\":\"Awesome\",\"grade\":null}," +
+                "{\"name\":\"Marta\",\"surname\":\"Super\",\"grade\":null}]", response.getContentAsString());
     }
 }
